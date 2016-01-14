@@ -556,7 +556,6 @@ public class RedisSessionManager extends ManagerBase implements Lifecycle {
                         SessionSerializationMetadata updatedSerializationMetadata = new SessionSerializationMetadata();
                         updatedSerializationMetadata.setSessionAttributesHash(sessionAttributesHash);
                         cluster.set(mapperId.getBytes(), serializer.serializeFrom(redisSession, updatedSerializationMetadata));
-//                        redisSession.resetDirtyTracking();
                         cluster.expire(mapperId.getBytes(), getMaxInactiveInterval());
                     }
                 }
