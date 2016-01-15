@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<module external.linked.project.id="tomcat-session" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="com.plugins" external.system.module.version="1.0" type="JAVA_MODULE" version="4">
+<module external.linked.project.id="tomcat-session" external.linked.project.path="$MODULE_DIR$" external.root.project.path="$MODULE_DIR$" external.system.id="GRADLE" external.system.module.group="com.plugins" external.system.module.version="1.1" type="JAVA_MODULE" version="4">
   <component name="NewModuleRootManager" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/classes/main" />
     <output-test url="file://$MODULE_DIR$/build/classes/test" />
@@ -14,82 +14,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.commons:commons-pool2:2.4.2">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/e5f4f28f19d57716fbc3989d7a357ebf1e454fea/commons-pool2-2.4.2.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-pool2/2.4.2/2c9dcae4975caff05a627b99fae76e6fef2a3a0e/commons-pool2-2.4.2-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.tomcat:tomcat-catalina:7.0.27">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-catalina/7.0.27/5636afa26acab10c72bb4e2ec49532a6937a44eb/tomcat-catalina-7.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-catalina/7.0.27/3b4b9e5e9ebc105a358f55765f5a2083974fb5dc/tomcat-catalina-7.0.27-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.tomcat:tomcat-servlet-api:7.0.27">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/7.0.27/a7159bb6b332fb3b67f8c2c4dfc2a1430892353e/tomcat-servlet-api-7.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-servlet-api/7.0.27/efbea02eae4f51ead3e5cf09e5d4283c1ad710a3/tomcat-servlet-api-7.0.27-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.tomcat:tomcat-juli:7.0.27">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/7.0.27/20ce78c872139424b73ed24d242a84b5bbee7125/tomcat-juli-7.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-juli/7.0.27/ab4541cd6c70bfffd234a95fe0aa5a7071cfbeaf/tomcat-juli-7.0.27-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.tomcat:tomcat-annotations-api:7.0.27">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/7.0.27/43de2bcd1b031daba05d8aebbaf8cce4bed0d34e/tomcat-annotations-api-7.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-annotations-api/7.0.27/4e54a137ac46fe17c10ba614a306b2f7236f5a89/tomcat-annotations-api-7.0.27-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.tomcat:tomcat-api:7.0.27">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-api/7.0.27/a39075408b5725cc8dde84cfd2816099df885711/tomcat-api-7.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-api/7.0.27/92fb1c0e009e42c5c3a3842c8fba9ad8fdbf5c96/tomcat-api-7.0.27-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library name="Gradle: org.apache.tomcat:tomcat-util:7.0.27">
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util/7.0.27/249a9c7584ba34ede9de3eb7a4ff191990b61f38/tomcat-util-7.0.27.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.tomcat/tomcat-util/7.0.27/826dd338949628418f3a5b05ecf6a131cbefc75b/tomcat-util-7.0.27-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
+    <orderEntry type="library" name="Gradle: org.apache.commons:commons-pool2:2.4.2" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-catalina:7.0.27" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-servlet-api:7.0.27" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-juli:7.0.27" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-annotations-api:7.0.27" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-api:7.0.27" level="project" />
+    <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-util:7.0.27" level="project" />
   </component>
 </module>
