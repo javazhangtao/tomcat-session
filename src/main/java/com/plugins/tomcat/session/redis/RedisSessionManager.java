@@ -398,25 +398,6 @@ public class RedisSessionManager extends ManagerBase implements Lifecycle {
             if (data != null) {
                 DeserializedSessionContainer container = sessionFromSerializedData(id, data);
                 session = container.session;
-
-                //从属session从主session复制session数据(Attribute)===========================begin
-                Object mapperId=session.getAttribute("mapperId");
-                if(null!=mapperId){
-                    byte[] mainData = loadSessionDataFromRedis(String.valueOf(mapperId));
-                    log.info((mainData != null));
-                    if (mainData != null) {
-                        DeserializedSessionContainer mainContainer = sessionFromSerializedData(String.valueOf(mapperId), mainData);
-                        RedisSession mainSession=mainContainer.session;
-                        Enumeration en = mainSession.getAttributeNames();
-                        while(en.hasMoreElements()){
-                            String key= (String) en.nextElement();
-                            session.setAttribute(key,mainSession.getAttribute(key));
-                        }
-                    }
-                    container.metadata.setSessionAttributesHash(serializer.attributesHashFrom(session));
-                }
-                //从属session从主session复制session数据(Attribute)===========================end
-
                 currentSession.set(session);
                 currentSessionSerializationMetadata.set(container.metadata);
                 currentSessionIsPersisted.set(true);
@@ -513,11 +494,9 @@ public class RedisSessionManager extends ManagerBase implements Lifecycle {
      */
     protected boolean saveInternal(JedisCluster cluster, Session session, boolean forceSave) throws IOException {
         Boolean error = true;
-        String mapperId = null;
         try {
             log.trace("Saving session " + session + " into Redis");
             RedisSession redisSession = (RedisSession)session;
-            mapperId = String.valueOf(redisSession.getAttribute("mapperId"));
             byte[] binaryId = redisSession.getId().getBytes();
             Boolean isCurrentSessionPersisted;
             SessionSerializationMetadata sessionSerializationMetadata = currentSessionSerializationMetadata.get();
@@ -549,36 +528,6 @@ public class RedisSessionManager extends ManagerBase implements Lifecycle {
             log.trace("Setting expire timeout on session [" + redisSession.getId() + "] to " + getMaxInactiveInterval());
             cluster.expire(binaryId, getMaxInactiveInterval());
 
-            if(null!=mapperId){
-                byte[] data = loadSessionDataFromRedis(mapperId);
-//                DeserializedSessionContainer mainContainer=sessionFromSerializedData(mapperId,data);
-//                RedisSession mainSession=mainContainer.session;
-//                Enumeration en = redisSession.getAttributeNames();
-//                while(en.hasMoreElements()){
-//                    String key= (String) en.nextElement();
-//
-//                    if("mapperId".equals(key)){
-//                        continue;
-//                    }
-//
-//                    mainSession.setAttribute(key,redisSession.getAttribute(key));
-//                }
-//                sessionAttributesHash = serializer.attributesHashFrom(mainSession);
-//                SessionSerializationMetadata mainUpdatedSerializationMetadata = new SessionSerializationMetadata();
-//                mainUpdatedSerializationMetadata.setSessionAttributesHash(sessionAttributesHash);
-//                cluster.set(mapperId.getBytes(), serializer.serializeFrom(redisSession, mainUpdatedSerializationMetadata));
-//                cluster.expire(mapperId.getBytes(), getMaxInactiveInterval());
-                if (data != null) {
-                    redisSession.removeAttribute("mapperId");//主session对象删除mapperId数据
-                    sessionAttributesHash = serializer.attributesHashFrom(redisSession);
-                    if(null!=sessionAttributesHash){
-                        SessionSerializationMetadata updatedSerializationMetadata = new SessionSerializationMetadata();
-                        updatedSerializationMetadata.setSessionAttributesHash(sessionAttributesHash);
-                        cluster.set(mapperId.getBytes(), serializer.serializeFrom(redisSession, updatedSerializationMetadata));
-                        cluster.expire(mapperId.getBytes(), getMaxInactiveInterval());
-                    }
-                }
-            }
 
             error = false;
             return error;
